@@ -17,7 +17,7 @@ Tunnel* createTunnel(char *objHost)
     int sockfd = socket(AF_INET, SOCK_DGRAM, 0);
     if (sockfd < 0) logError("Can't create socket: %s.", strerror(errno));
 
-    int port = rand() % 10000 + 1000;
+    int port = rand() % 10000 + 10000;
     sockaddr_in addr;
     socklen_t addrLen = sizeof(addr);
     memset(&addr, 0, sizeof(addr));
@@ -56,9 +56,10 @@ void cleanup()
 
 int main(int argc, char *args[])
 {
-    logLevel = LOG_LV_DEBUG;
+    //logLevel = LOG_LV_DEBUG;
     if (argc < 2) logError("No enough argument, usage: %s <IP>", args[0]);
     logInfo("Start client (%d)", getpid());
+    srand(getpid());
 
     Tunnel *tun = createTunnel(args[1]);
     NetDev *net = createNetDev(tun);

@@ -1,0 +1,5 @@
+1. Keep alive.
+2. Remove dead client.
+3. Let the mechanisim work in recursive dns request?
+4. Improve performance
+5. Add ICMP Tunnel

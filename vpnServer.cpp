@@ -46,7 +46,7 @@ bool operator<(const sockaddr_in &a, const sockaddr_in &b)
 
 int main()
 {
-    logLevel = LOG_LV_DEBUG;
+    //logLevel = LOG_LV_DEBUG;
     logInfo("Start server (%d)", getpid());
 
     DNSTunnel *source = createTunnel();
